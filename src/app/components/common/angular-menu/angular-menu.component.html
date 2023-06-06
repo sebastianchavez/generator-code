@@ -1,0 +1,16 @@
+<h3>Menu</h3>
+<hr>
+<div class="container-menu">
+    <div class="link" [ngClass]="{'active': selectedMenu == 1}" (click)="clickSelectMenu(1)">
+        Inicio
+    </div>
+    <div class="link" [ngClass]="{'active': selectedMenu == 2}" (click)="clickSelectMenu(2)">
+        Componentes
+    </div>
+    <div class="link" [ngClass]="{'active': selectedMenu == 3}" (click)="clickSelectMenu(3)">
+        Servicios
+    </div>
+    <div class="link" [ngClass]="{'active': selectedMenu == 4}" (click)="clickSelectMenu(4)">
+        Templates
+    </div>
+</div>

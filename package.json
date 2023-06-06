@@ -1,12 +1,16 @@
 {
   "name": "code-generator-app",
   "version": "0.0.0",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:electron": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "electron": "ng build && electron .",
+    "build:electron": "ng build && electron-builder"
   },
   "private": true,
   "dependencies": {
@@ -23,10 +27,17 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.66",
+    "@electron-forge/maker-deb": "^6.0.0-beta.66",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.66",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.66",
+    "@electron-forge/maker-zip": "^6.0.0-beta.66",
     "@angular-devkit/build-angular": "^14.0.1",
     "@angular/cli": "~14.0.1",
     "@angular/compiler-cli": "^14.0.0",
     "@types/jasmine": "~4.0.0",
+    "electron": "^25.0.0",
+    "electron-builder": "^23.6.0",
     "jasmine-core": "~4.1.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -34,5 +45,30 @@
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.7.2"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "child_process": false
+  },
+  "build": {
+    "appId": "CodeGenerator",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "favicon.ico",
+      "files": [
+        "**/*",
+        "dist/**/*"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "installerIcon": "favicon.ico",
+      "uninstallerIcon": "favicon.ico",
+      "license": "license.md",
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }

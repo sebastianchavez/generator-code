@@ -1,0 +1,17 @@
+
+.container-menu{
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
+    padding-left: .5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.active {
+    border-radius: 4px;
+    background-color: #DCDDE1;
+}
